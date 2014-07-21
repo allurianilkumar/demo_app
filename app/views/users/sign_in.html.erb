@@ -1,0 +1,42 @@
+<div class="container">
+	
+		<div class="row">
+			<div class="col-lg-10">
+			
+			<%= form_for :user,:url =>validUser_users_path ,:method => 'post' , :class => 'simple_form form-horizontal' do |user| %>
+				<div style="margin:0;padding:0;display:inline">
+					<input name="utf8" type="hidden" value="&#x2713;" />
+					<input name="authenticity_token" type="hidden" value="B1TuNwFttqwyi00Yz/h3t746UZXcJIeDlasaf2pnE4o=" />
+				</div>
+
+					<h1>Member Login</h1>
+					<legend>
+						<h4>If you are not a member yet please become a member <a href="/users/new">here</a> to Sign In</h4>
+					</legend>
+
+					
+					<h4>
+						<% if flash[:notice] %>
+  							<%= h flash[:notice] %>
+						<% end %>
+					</h4>
+
+					<div class="form-group row">
+    				<%= user.label :email, class: "string optional control-label control-label col-md-2 col-lg-2" %>
+      			<div class="col-md-4 col-lg-4">
+          		<%= user.text_field :email, class: "form-control", size:"70" %>
+      			</div>
+					</div>
+
+					<div class="form-group row">
+    				<%= user.label :password, class: "string optional control-label control-label col-md-2 col-lg-2" %>
+      				<div class="col-md-4 col-lg-4">
+          			<%= user.password_field :password, class: "form-control" %>
+      				</div>
+					</div>
+
+					<%= user.submit "Sign in", class: "btn btn-primary", style: "margin-left: 17%"%>
+        <% end %>
+			</div>
+		</div>
+</div>

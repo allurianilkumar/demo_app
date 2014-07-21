@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row"> 
+    <div class="col-lg-10 ">
+      <h2>Update Courses</h2>
+        <%= form_for( @course, :url => { :action => 'update' }) do | course | %>
+        <%= render( :partial => "form", :locals => { :course => course } ) %>
+      <div class="form-group"> 
+        <div class="col-md-8 col-md-offset-2"> 
+          <%= course.submit "Update Course", class: "btn btn-primary", style: "margin-left: 7%" %>
+          <%= link_to 'Back', courses_path, :method => 'get', :class => "btn btn-default" %>
+         </div> 
+      </div> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
