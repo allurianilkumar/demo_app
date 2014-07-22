@@ -9,10 +9,26 @@ class CreateGadgets < ActiveRecord::Migration
       t.string :type_of_method_or_gadget
       t.text :gadget_description
       t.decimal :cost
-      t.string :company_name
+      t.string :currencies
+      t.string :tool_users
+      t.string :gadget_website
+      t.string :gadget_brochure
+      t.string :companay_name
       t.text :company_description
-      t.string :company_website
+      t.string :companay_website
+      t.string :gadget_scientific
       t.string :technology_used
+      t.text :scientific_descrition
+      t.string :scientfic_papers
+      t.string :useful_for_field
+      t.string :qualfiy_area_interest
+      t.string :useful_which_field_lab
+      t.string :explanation_by_evaluator
+      t.string :explanation_by_nrc
+      t.string :name_by_evaluator
+      t.string :comments_suggestion_of_evalutor
+      #t.string :picture_url
+      #t.string :video_url
       t.text :comment
       
       t.timestamps
@@ -20,6 +36,6 @@ class CreateGadgets < ActiveRecord::Migration
   end
 
   def down
-    drop_table :gadgets
+   # drop_table :gadgets
   end
 end
