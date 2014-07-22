@@ -1,6 +1,6 @@
 <!--search engin -->
 
-<div class="col-md-8 col-xs-5 col-md-offset-0">
+<!-- <div class="col-md-8 col-xs-5 col-md-offset-0">
       <div class="thumbnail">
         <div class="caption">
             <form class="form-horizontal">
@@ -26,7 +26,7 @@
               </fieldset>
             </form>
       </div>
-  </div>
+  </div> -->
 
 <!-- end search engin -->
 
@@ -71,7 +71,7 @@
                     <td><%= course.fee %></td>
                     <td><%= link_to 'show',course_path(course.id) %></td>
                     <td><%= link_to 'edit', edit_course_path(course.id) %></td>
-                    <td><%= link_to 'Destroy', course_path(course.id), :method => 'delete' %>
+                    <td><%= link_to 'Destroy', course_path(course.id), :method => 'delete', data: { confirm: 'Are you sure?' } %>
                   </td>
                   </tr>
                 <% end %>

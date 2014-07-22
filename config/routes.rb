@@ -19,11 +19,8 @@ Rails.application.routes.draw do
   
   resources :admins 
   
-  resources :gadgets do
-    member do
-      get 'generatereport'
-    end
-  end
+  resources :gadgets 
+   
 
   resources :users_admin do
     collection do

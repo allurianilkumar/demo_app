@@ -2,8 +2,8 @@ class GadgetsController < ApplicationController
 
 
 def index
-  @gadgets = Gadget.all
-  
+  @search = Gadget.search(params[:q])
+  @gadgets = @search.result
 end
 
 

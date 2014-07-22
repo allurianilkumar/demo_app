@@ -23,16 +23,16 @@
                 <% if @users.blank? %> 
                   <p> No Users </p>
                 <% else %>
-                  <% @users.each do |allusers| %>
+                  <% @users.each do |users| %>
                     <tr>
-                      <td><%= allusers.first_name%></td>
-                      <td><%= allusers.last_name%></td>
-                      <td><%= allusers.email%></td>
-                      <td><%= allusers.institution%></td>
-                      <td><%= allusers.role%></td>
-                      <td><%= link_to 'show',users_admin_path(allusers.id)%></td>
-                      <td><%= link_to 'edit', edit_users_admin_path(allusers.id) %></td>
-                      <td><%= link_to 'Destroy', users_admin_path(allusers.id), :method => 'delete' %></td>
+                      <td><%= users.first_name%></td>
+                      <td><%= users.last_name%></td>
+                      <td><%= users.email%></td>
+                      <td><%= users.institution%></td>
+                      <td><%= users.role%></td>
+                      <td><%= link_to 'show',users_admin_path(users.id)%></td>
+                      <td><%= link_to 'edit', edit_users_admin_path(users.id) %></td>
+                      <td><%= link_to 'Destroy', users_admin_path(users.id), :method => 'delete',data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                   <% end %>
                 <% end %>
