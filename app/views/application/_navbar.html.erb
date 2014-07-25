@@ -2,7 +2,6 @@
     <div class="nav navbar-header">
       <a href="/contacts/new" class="navbar-brand">Contact</a>
     </div>
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
@@ -16,10 +15,13 @@
         <li>
         <%= link_to 'New Member Registration', sign_up_users_path, :method => 'get'%>
         </li>
-        <li><a href="/users/sign_in">LOGIN</a></li>
+        <% if User.nil?  %>
+        <li><a href="/users/sign_out">LOGOUT</a>
+        <% else %><a href="/users/sign_in">LOGIN</a>
+        </li><% end %>
       </ul>
     </div>
-  </nav> <br> 
+</nav> <br> 
 
 
 

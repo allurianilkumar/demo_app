@@ -19,6 +19,10 @@ class UsersController < ApplicationController
       flash[:notice] = "You are signed up successfully"
     end
   end
+  # def show
+  #   @user = User.find(params[:id])
+    
+  # end
 
   def new
      render sign_up_users_path
@@ -48,7 +52,12 @@ class UsersController < ApplicationController
   end
 
   def sign_up
-    
+     
+  end
+  def sign_out
+     @user.email = nil
+     @user.password = nil
+     render :text => params.inspect and return 
   end
 
 end

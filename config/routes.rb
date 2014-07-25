@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'sign_in'
       get 'sign_up'
       post 'valid_user'
+      post 'sign_out'
     
     resources :courses do
     end
