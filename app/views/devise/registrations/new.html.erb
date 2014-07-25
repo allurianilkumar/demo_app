@@ -1,7 +1,10 @@
   <div class="container">
     <div class="row"> 
     <div class="col-lg-10 ">
-    <%= form_for :user,:url => users_path,:method => 'post' do |user|%>
+    <!--<%#= form_for :user,:url => users_path,:method => 'post' do |user|%> -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |user| %>
+      <%= devise_error_messages! %>
+
       <div style="margin:0;padding:0;display:inline">
        <input name="utf8" type="hidden" value="&#x2713;" />
         <input name="authenticity_token" type="hidden" value="B1TuNwFttqwyi00Yz/h3t746UZXcJIeDlasaf2pnE4o=" />
@@ -34,7 +37,7 @@
         </div>
 
         <div class="form-group row">
-          <%= user.label :Email, class: "string optional control-label control-label col-md-2 col-lg-2" %>
+          <%= user.label :Email,  autofocus: true, class: "string optional control-label control-label col-md-2 col-lg-2" %>
             <div class="col-md-4 col-lg-4">
               <%= user.text_field :email, class: "form-control" %>
             </div>
@@ -43,7 +46,7 @@
         <div class="form-group row">
           <%= user.label :Password, class: "string optional control-label control-label col-md-2 col-lg-2" %>
             <div class="col-md-4 col-lg-4">
-              <%= user.password_field :password, class: "form-control" %>
+              <%= user.password_field :password,autocomplete: "off", class: "form-control" %>
             </div>
         </div>
 
@@ -62,9 +65,44 @@
         </div>
       <div>
     <% end %>  
+    <%= render "devise/shared/links" %>
   </div>
 </div>
 </div>
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h2>Sign up</h2>
+
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%#= f.label :email %><br />
+  <%#= f.email_field :email, autofocus: true %></div>
+
+  <div><%#= f.label :password %><br />
+    <%#= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%#= f.label :password_confirmation %><br />
+    <%#= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%#= f.submit "Sign up" %></div>
+<% #end %>
+
+<%#= render "devise/shared/links" %>
+ -->

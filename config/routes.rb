@@ -1,32 +1,20 @@
 Rails.application.routes.draw do
-  
-  root to: 'users#sign_in'
-  
-  resources :contacts
-  match "/contacts/", :controller => 'contacts',  :action => 'index' , :via => [:get, :post]
-  
-  resources :users do 
-    collection do 
-      get 'sign_in'
-      get 'sign_up'
-      post 'valid_user'
-      post 'sign_out'
-    
-    resources :courses do
+# root to: 'users#sign_in'
+devise_for :users
+ resources :users do 
+  collection do 
+    get 'sign_in'
+    get 'sign_up'
+    post 'valid_user'
+  end
+end
+resources :contacts
+match "/contacts/", :controller => 'contacts',  :action => 'index' , :via => [:get, :post]
+resources :courses 
+resources :gadgets,:except => :delete
+resources :users_admin do
+  collection do
+    get 'sign_out'
     end
-    
-    resources :admins  do
-    end
-    
-    resources :gadgets,:except => :delete
-      
-      resources :users_admin do
-        collection do
-          get 'sign_out'
-        end
-      end
-
-    end
-
   end
 end 

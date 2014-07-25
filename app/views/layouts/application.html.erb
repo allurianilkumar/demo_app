@@ -2,12 +2,8 @@
 <html>
 <head>
   <title>DemoApp</title>
- <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.theme.css" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
 </head>
 <body>
  <div class="row">
@@ -15,10 +11,18 @@
   </div>
   <div class="row">
     <div class="col-md-2">
+    <% if user_signed_in? %>
       <%= render :partial => "sidebar"%>
+    </div>
+      <% else %>
+    
+    <% end %>
+
     </div>
     <div class=" row col-md-10">
       <div class="well">
+       <p class="alert"><%= alert %></p>
+
         <%= yield %>
       </div>
     </div>

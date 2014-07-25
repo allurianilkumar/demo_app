@@ -1,4 +1,4 @@
-<% if User.nil? %>
+<% if user_signed_in? %>
 <div class="sidebar-padding">
 	<div class="list-group">
         <%= link_to 'Users', users_admin_index_path, :method => 'get', :class => "list-group-item active"%>
@@ -7,5 +7,5 @@
     </div>
 </div>
 <% else %>
-  <div>Hai</div>
+<div><h1>Welcome to Gadgets</h1></div>
 <% end %>

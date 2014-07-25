@@ -55,6 +55,7 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
+  color: rgb(18, 88, 40);
 }
 dfn {
   font-style: italic;
@@ -3683,7 +3684,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     display: block !important;
     height: auto !important;
     padding-bottom: 0;
-    background-color: black;
+    background-color: rgb(197, 211, 210);
     overflow: visible !important;
   }
   .navbar-collapse.in {
