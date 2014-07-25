@@ -1,31 +1,31 @@
 Rails.application.routes.draw do
-  #devise_for :users
-  #root to: "home#index"
+  
   root to: 'users#sign_in'
-  # match ':controller(/:action(/:id))',:via => [:get, :post, :delete]
-  #resources :contacts,:only => :index
-  match "/contacts/", :controller => 'contacts',  :action => 'index' , :via => [:get, :post]
+  
   resources :contacts
-
+  match "/contacts/", :controller => 'contacts',  :action => 'index' , :via => [:get, :post]
+  
   resources :users do 
     collection do 
       get 'sign_in'
       get 'sign_up'
-      post 'validUser'
+      post 'valid_user'
+    
+    resources :courses do
     end
-  end
-
-  resources :courses
-  
-  resources :admins 
-  
-  resources :gadgets 
-   
-
-  resources :users_admin do
-    collection do
-      get 'sign_out'
+    
+    resources :admins  do
     end
-  end
+    
+    resources :gadgets,:except => :delete
+      
+      resources :users_admin do
+        collection do
+          get 'sign_out'
+        end
+      end
 
-end
+    end
+
+  end
+end 

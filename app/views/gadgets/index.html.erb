@@ -1,19 +1,4 @@
-
- <h1>Gadget </h1>
-<%= search_form_for @search do | f | %>
-  <div class="">
-    <%= f.label :title, "Title" %>
-    <%= f.text_field :title_start %>
-  </div>
-  <div>
-    <%= f.label :analysis_group, "Search by:Analysis Group" %>
-    <%= f.text_field :analysis_group_start %>
-  </div>
-<%= f.submit "Search" %>
-<% end %>
-
-
-
+<%= render 'search' %>
 <div class="row">
   <div class="col-md-10" id="padding">
     <div class="col-md-10">
@@ -29,7 +14,7 @@
       <table class="table table-striped table-hover">
           <tr>
              <th><%= sort_link @search, :title, "Gadget Title" %></th>
-            <th><%= sort_link @search, :method_or_gadget, "Name of the tool" %></th>
+            <th><%= sort_link @search, :name_method_or_gadget, "Name of the tool" %></th>
             <th>Analysis Group(s)</th>
             <th>Actions</th>
             <th colspan="3" class="text-center"></th>
@@ -37,8 +22,15 @@
         <% @gadgets.each do | gadget | %>
           <tr>
             <td><%= gadget.title %></td>
-            <td><%= gadget.method_or_gadget %></td>
-            <td><%= gadget.analysis_group %></td>
+            <td><%= gadget.name_method_or_gadget %></td>
+            <td><% gadget.analysis_groups.each do |temp| %>
+                <% if temp == gadget.analysis_groups.last %>
+                  <%= temp.name%>
+                <% else%>
+                  <%= temp.name+","%>
+                <% end %>
+                <% end %>
+            </td>
             <td><%= link_to 'Show', gadget_path(gadget.id) %></td>
             <td><%= link_to 'Edit', edit_gadget_path(gadget.id) %></td>
             <td><%= link_to 'Delete',gadget_path(gadget.id), :method => 'delete' %></td>

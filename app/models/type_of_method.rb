@@ -1,3 +1,3 @@
 class TypeOfMethod < ActiveRecord::Base
-  has_many :gadgets
+  has_and_belongs_to_many :gadgets
 end

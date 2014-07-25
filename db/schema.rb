@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722083842) do
+ActiveRecord::Schema.define(version: 20140725084010) do
 
-  create_table "analysis_group_gadgets", force: true do |t|
-    t.integer "gadgets_id"
-    t.integer "analysis_groups_id"
+  create_table "add_currency_to_gadgets", force: true do |t|
+    t.integer "gadget_id"
+    t.integer "currency_id"
   end
-
-  add_index "analysis_group_gadgets", ["analysis_groups_id"], name: "index_analysis_group_gadgets_on_analysis_groups_id", using: :btree
-  add_index "analysis_group_gadgets", ["gadgets_id"], name: "index_analysis_group_gadgets_on_gadgets_id", using: :btree
 
   create_table "analysis_groups", force: true do |t|
     t.string "name"
+  end
+
+  create_table "analysis_groups_gadgets", force: true do |t|
+    t.integer "gadget_id"
+    t.integer "analysis_group_id"
   end
 
   create_table "contacts", force: true do |t|
@@ -43,22 +45,18 @@ ActiveRecord::Schema.define(version: 20140722083842) do
   end
 
   create_table "currencies", force: true do |t|
-    t.string  "name"
-    t.integer "gadgets_id"
+    t.string "name"
   end
 
-  add_index "currencies", ["gadgets_id"], name: "index_currencies_on_gadgets_id", using: :btree
-
   create_table "gadgets", force: true do |t|
-    t.string   "name"
     t.string   "title"
-    t.string   "method_or_gadget"
+    t.string   "name_method_or_gadget"
     t.string   "useful_for"
     t.string   "analysis_group"
     t.string   "type_of_method_or_gadget"
     t.text     "gadget_description"
     t.decimal  "cost",                            precision: 10, scale: 0
-    t.string   "currencies"
+    t.string   "currencys_id"
     t.string   "tool_users"
     t.string   "gadget_website"
     t.string   "gadget_brochure"
@@ -73,31 +71,27 @@ ActiveRecord::Schema.define(version: 20140722083842) do
     t.string   "qualfiy_area_interest"
     t.string   "useful_which_field_lab"
     t.string   "explanation_by_evaluator"
+    t.string   "name"
     t.string   "explanation_by_nrc"
     t.string   "name_by_evaluator"
     t.string   "comments_suggestion_of_evalutor"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "currency_id"
   end
 
-  create_table "gadgets_qua_area_ints", force: true do |t|
-    t.integer "qualify_area_of_intrests_id"
-    t.integer "gadgets_id"
+  create_table "gadgets_qualify_area_of_interests", force: true do |t|
+    t.integer "gadget_id"
+    t.integer "qualify_area_of_interest_id"
   end
-
-  add_index "gadgets_qua_area_ints", ["gadgets_id"], name: "index_gadgets_qua_area_ints_on_gadgets_id", using: :btree
-  add_index "gadgets_qua_area_ints", ["qualify_area_of_intrests_id"], name: "index_gadgets_qua_area_ints_on_qualify_area_of_intrests_id", using: :btree
 
   create_table "gadgets_type_of_methods", force: true do |t|
-    t.integer "gadgets_id"
-    t.integer "type_of_methods_id"
+    t.integer "type_of_method_id"
+    t.integer "gadget_id"
   end
 
-  add_index "gadgets_type_of_methods", ["gadgets_id"], name: "index_gadgets_type_of_methods_on_gadgets_id", using: :btree
-  add_index "gadgets_type_of_methods", ["type_of_methods_id"], name: "index_gadgets_type_of_methods_on_type_of_methods_id", using: :btree
-
-  create_table "qualify_area_of_intrests", force: true do |t|
+  create_table "qualify_area_of_interests", force: true do |t|
     t.string "name"
   end
 

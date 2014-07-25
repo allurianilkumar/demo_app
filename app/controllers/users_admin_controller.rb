@@ -55,4 +55,5 @@ class UsersAdminController < ApplicationController
       User.find(params[:id]).destroy
       redirect_to users_admin_index_path
   end
+  
 end

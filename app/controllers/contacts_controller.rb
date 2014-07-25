@@ -1,27 +1,24 @@
 class ContactsController < ApplicationController
-  
-  def index
+  def new
+     @contacts = Contact.new
+     
+  end
+  def create
     #render :text => "index" and return
-    @contacts = Contacts.new
+    @contacts = Contact.new
     #render :text => params.inspect and return
-    @contacts.contact_name = params[:contacts][:contact_name]
-    @contacts.contact_mail = params[:contacts][:contact_mail]
-    @contacts.contact_message = params[:contacts][:contact_message]
+    @contacts.contact_name = params[:contact][:contact_name]
+    @contacts.contact_mail = params[:contact][:contact_mail]
+    @contacts.contact_message = params[:contact][:contact_message]
     #render :text => params.inspect and return
     if @contacts.save
-      #render :text => params.inspect and return
-     flash.now[:alert] = 'sended message ...'
+     # render :text => params.inspect and return
+     flash[:alert] = 'sended message ...'
      redirect_to root_path
     else
        #render :text => params.inspect and return
       render 'new'
     end
-  end
-  
-   
-  def new
-     @contacts = Contacts.new
-    
   end
 
 end

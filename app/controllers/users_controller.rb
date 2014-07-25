@@ -28,14 +28,14 @@ class UsersController < ApplicationController
     
   end
 
-  def validUser
+  def valid_user
     @temp_email = params[:user][:email]
     @temp_password = params[:user][:password]
 
-    @perm_email = User.find_by_email(@r_email)
-    @perm_password = User.find_by_password(@r_password)
+    @check_email = User.find_by_email(@temp_email)
+    @check_password = User.find_by_password(@temp_password)
 
-    if @temp_email.nil? or @perm_password.nil?
+    if @check_email.nil? or @check_password.nil?
       flash[:notice] = "Entered Email-Id/Password is Invalid"
       redirect_to sign_in_users_path
     else
