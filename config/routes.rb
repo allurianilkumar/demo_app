@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-# root to: 'users#sign_in'
+  resources :musics
+
+root to: 'users#index'
 devise_for :users
  resources :users do 
   collection do 
@@ -8,9 +10,9 @@ devise_for :users
     post 'valid_user'
   end
 end
-resources :contacts
-match "/contacts/", :controller => 'contacts',  :action => 'index' , :via => [:get, :post]
-resources :courses 
+resources :contacts,:only => [:new,:create,:index]
+match "/contacts/", :controller => 'contacts',:action => 'index' , :via => [:get, :post]
+resources :courses ,:only => [:index,:new,:create,:show,:edit,:update,:destroy]
 resources :gadgets,:except => :delete
 resources :users_admin do
   collection do

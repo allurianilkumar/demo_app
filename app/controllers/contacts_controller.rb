@@ -14,12 +14,16 @@ class ContactsController < ApplicationController
     if @contacts.save
      # render :text => params.inspect and return
      flash[:alert] = 'sended message ...'
-     redirect_to root_path
-    else
+    redirect_to  sign_in_users_path
+     else
        #render :text => params.inspect and return
       render 'new'
     end
   end
+  # def index
+  #   redirect_to  new_user_session
+    
+  # end
 
 end
  

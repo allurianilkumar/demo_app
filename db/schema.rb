@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725125122) do
+ActiveRecord::Schema.define(version: 20140726123130) do
 
   create_table "add_currency_to_gadgets", force: true do |t|
     t.integer "gadget_id"
@@ -89,6 +89,23 @@ ActiveRecord::Schema.define(version: 20140725125122) do
   create_table "gadgets_type_of_methods", force: true do |t|
     t.integer "type_of_method_id"
     t.integer "gadget_id"
+  end
+
+  create_table "musics", force: true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "qualify_area_of_interests", force: true do |t|

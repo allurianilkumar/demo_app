@@ -33,4 +33,9 @@ gem 'spring',        group: :development
 gem 'devise'
 
 gem 'ransack'
+#for photo uploading
+gem 'carrierwave'
+# for all
+gem "paperclip"
+
 

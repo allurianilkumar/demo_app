@@ -1,0 +1,34 @@
+<%= f.file_field :image %>
+<%= f.file_field :document %>
+<%= f.file_field :audio %>
+
+
+<%= form_for(@music) do |f| %>
+  <% if @music.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@music.errors.count, "error") %> prohibited this music from being saved:</h2>
+
+      <ul>
+      <% @music.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :document %><br>
+    <%= f.text_field :document %>
+  </div>
+  <div class="field">
+    <%= f.label :audio %><br>
+    <%= f.text_field :audio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

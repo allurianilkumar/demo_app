@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>DemoApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
@@ -21,8 +21,8 @@
     </div>
     <div class=" row col-md-10">
       <div class="well">
+      
        <p class="alert"><%= alert %></p>
-
         <%= yield %>
       </div>
     </div>
