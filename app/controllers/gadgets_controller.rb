@@ -1,5 +1,7 @@
 class GadgetsController < ApplicationController
 
+#layout "gadgets"
+
 def index
   @search = Gadget.search(params[:q])
   @gadgets = @search.result
