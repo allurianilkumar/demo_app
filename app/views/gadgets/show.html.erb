@@ -8,19 +8,16 @@
   </div>
 </div> 
 <hr/>
-
 <div class="row">
   <div class="col-md-8">
     <dl>
       <dt>Name of the method/gadget</dt>
       <dd><%= @gadget.name_method_or_gadget %></dd>
     </dl>
-
     <dl>
       <dt>What is it for?</dt>
       <dd><%= @gadget.useful_for %></dd>
     </dl>
-            
     <dl>
       <% if !@gadget.analysis_group.empty? %>
         <dt>Analysis group(s)</dt>
@@ -29,8 +26,7 @@
           <% end %>
       <% end %>
     </dl>
- 
-    <dl>
+     <dl>
       <dt>Type of method/gadget</dt>
       <% if !@gadget.type_of_method_or_gadget.empty? %>
           <% @gadget.type_of_methods.each do |group| %>
@@ -38,12 +34,10 @@
           <% end %>
       <% end %>
     </dl> 
-            
     <dl>
       <dt>Gadget description</dt>
       <dd><%= @gadget.gadget_description %></dd>
     </dl>
-            
      <dl>
         <% if !@gadget.cost.nil?%>
           <dt>Cost</dt>
@@ -53,24 +47,18 @@
   </div>
 </div>
 <hr/>
-  
   <dl>
     <dt>Company name</dt>
     <dd> <%= @gadget.companay_name%></dd>
   </dl>
-        
   <dl>
     <dt>Company description</dt>
     <dd><%= @gadget.company_description%></dd>
   </dl>
-        
   <dl>
     <dt>Company website</dt>
     <dd> <%= @gadget.companay_website%></dd>
   </dl>
-
- 
-    
   <dl>
     <dt>Evaluated by NRC </dt>
     <dd><%if  @gadget.explanation_by_evaluator %>
@@ -80,7 +68,6 @@
         <% end %>
     </dd>
   </dl>
-
   <dl>
     <dt>Name of evaluator </dt>
       <dd>
@@ -91,7 +78,6 @@
         <% end %>
       </dd>
   </dl>
-        
   <dl>
     <dt>Usefulness for which field lab? </dt>
     <dd><%if  @gadget.useful_which_field_lab %>
@@ -101,4 +87,3 @@
         <% end %> </dd>
   </dl>
 </div>
-
