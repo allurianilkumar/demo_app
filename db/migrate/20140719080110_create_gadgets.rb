@@ -1,7 +1,6 @@
 class CreateGadgets < ActiveRecord::Migration
   def up
     create_table :gadgets do |t|
-     
       t.string :title
       t.string :name_method_or_gadget
       t.string :useful_for
@@ -19,7 +18,6 @@ class CreateGadgets < ActiveRecord::Migration
       t.string :gadget_scientific
       t.string :technology_used
       t.text :scientific_descrition
-
       t.string :scientfic_papers
       t.string :useful_for_field
       t.string :qualfiy_area_interest
@@ -32,11 +30,9 @@ class CreateGadgets < ActiveRecord::Migration
       #t.string :picture_url
       #t.string :video_url
       t.text :comment
-      
       t.timestamps
     end
   end
-
   def down
     drop_table :gadgets
   end
