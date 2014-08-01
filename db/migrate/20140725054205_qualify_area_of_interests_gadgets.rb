@@ -9,6 +9,5 @@ class QualifyAreaOfInterestsGadgets < ActiveRecord::Migration
     #remove_reference :gadget
     #remove_reference :qualify_area_of_interests
     drop_table :gadgets_qualify_area_of_interests
-    
   end
 end
