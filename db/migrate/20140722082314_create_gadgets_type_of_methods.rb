@@ -3,7 +3,6 @@ class CreateGadgetsTypeOfMethods < ActiveRecord::Migration
     create_table :gadgets_type_of_methods do |t|
       t.references :type_of_method
       t.references :gadget
-      
     end
   end
   def down
