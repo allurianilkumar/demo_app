@@ -6,47 +6,40 @@
        <input name="utf8" type="hidden" value="&#x2713;" />
         <input name="authenticity_token" type="hidden" value="B1TuNwFttqwyi00Yz/h3t746UZXcJIeDlasaf2pnE4o=" />
       </div>
-        
         <h1>New Member Registration</h1>
         <legend>
           <h4>To get access to this inventory list of gadgets please fill out the following form. Thank you </h4>
         </legend>
-       
         <div class="form-group row">
           <%= user.label :FirstName, class: "string optional control-label control-label col-md-2 col-lg-2" %>
             <div class="col-md-4 col-lg-4">
               <%= user.text_field :first_name, class: "form-control" %>
             </div>
         </div>
-
         <div class="form-group row">
           <%= user.label :LastName, class: "string optional control-label control-label col-md-2 col-lg-2" %>
             <div class="col-md-4 col-lg-4">
               <%= user.text_field :last_name, class: "form-control" %>
             </div>
         </div>
-
         <div class="form-group row">
           <%= user.label :Institution, class: "string optional control-label control-label col-md-2 col-lg-2" %>
             <div class="col-md-4 col-lg-4">
               <%= user.text_field :institution, class: "form-control" %>
             </div>
         </div>
-
         <div class="form-group row">
           <%= user.label :Email, class: "string optional control-label control-label col-md-2 col-lg-2" %>
             <div class="col-md-4 col-lg-4">
               <%= user.text_field :email, class: "form-control" %>
             </div>
         </div>
-
         <div class="form-group row">
           <%= user.label :Password, class: "string optional control-label control-label col-md-2 col-lg-2" %>
             <div class="col-md-4 col-lg-4">
               <%= user.password_field :password, class: "form-control" %>
             </div>
         </div>
-
         <div class="row">         
           <div class="form-group">
             <label class="string optional control-label control-label col-md-2" for="user_Confirmation">Confirmation</label>
@@ -55,7 +48,6 @@
               </div>
           </div>
         </div><br>
-
         <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2" style="padding-top:20px;">
           <%= user.submit "Become a member", class: "btn btn-primary", style: "margin-left: 5%"%>
@@ -66,5 +58,3 @@
 </div>
 </div>
 </div>
-
-
