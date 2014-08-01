@@ -1,16 +1,12 @@
 class GadgetsController < ApplicationController
-
 #layout "gadgets"
-
 def index
   @search = Gadget.search(params[:q])
   @gadgets = @search.result
 end
-
 def new
    @gadget = Gadget.new
 end
-
 def create
  # render :text => params.inspect and return 
   @gadget = Gadget.new(title: params[:gadget][:title],
@@ -30,7 +26,6 @@ def create
   explanation_by_evaluator: params[:gadget][:explanation_by_evaluator],
   name: params[:gadget][:name],
   comments_suggestion_of_evalutor: params[:gadget][:comments_suggestion_of_evalutor])
-
    analysys_array = params[:gadget][:analysis_group]
    # render :text => analysys_array.inspect and return
      if !analysys_array.nil?   
@@ -39,26 +34,19 @@ def create
         @gadget.analysis_groups << AnalysisGroup.find_by_id(f.to_i)
        end
      end
-
   type_of_method_or_gadget_array = params[:gadget][:type_of_method_or_gadget]
-
     if !type_of_method_or_gadget_array.nil?   
-
       type_of_method_or_gadget_array.each do |t| 
         #render :text => f.select(:name).inspect and return
         @gadget.type_of_methods <<  TypeOfMethod.find(t.to_i)
-
       end
-
     end
-
   qualfiy_area_interest_array = params[:gadget][:qualfiy_area_interest]
     if !qualfiy_area_interest_array.nil?   
       qualfiy_area_interest_array.each do |p| 
         @gadget.qualify_area_of_interests <<  QualifyAreaOfInterest.find(p.to_i)
       end
     end
-  
   if @gadget.save
     flash[:notice] =  'Gadget successfully created.' 
     redirect_to gadgets_path
@@ -67,11 +55,9 @@ def create
     render 'new'
   end
 end
-
 def show
   @gadget = Gadget.find(params[:id])
 end
-
 def edit
   @gadget = Gadget.find(params[:id])
   if !@gadget.nil?
@@ -90,18 +76,14 @@ def update
     @gadget.cost = params[:gadget][:cost]
     @gadget.company_description = params[:gadget][:company_description]
     @gadget.companay_website = params[:gadget][:companay_website]
-    
     if @gadget.save
       redirect_to gadgets_path
     else
       render 'edit'
     end
 end
-
 def destroy
   @gadget = Gadget.find(params[:id]).destroy
   redirect_to  gadgets_path
 end
-
-
 end
