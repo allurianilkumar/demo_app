@@ -7,7 +7,6 @@ class CreateUsres < ActiveRecord::Migration
       t.string :last_name
       t.string :institution
       t.string :role
-      
       t.timestamps
     end
   end
