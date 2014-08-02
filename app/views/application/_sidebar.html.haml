@@ -1,0 +1,37 @@
+%div
+  .row
+    .col
+      .col-md-9
+        - if user_signed_in?
+          .sidebar-padding
+            %center
+              %h4 Our Service
+            .list-group
+              = link_to 'Users', users_admin_index_path, :method => 'get', :class => "list-group-item"
+              = link_to 'Courses', courses_path, :method => 'get', :class => "list-group-item"
+              = link_to 'Gadgets Inventory', gadgets_path, :method =>'get', :class => "list-group-item"
+              %br/
+              %hr
+                / </haml:block><haml:silent></haml:silent><haml:block>
+                %h4
+                  %ul.nav.nav-pills.nav-stacked
+                    %li
+                      %center
+                        %strong
+                          %u
+                            %a{:href => "/users/"}= current_user.email
+                    %li.active
+                      %a{:href => "#"} COMPOSE
+                    %li
+                      %a{:href => "#"} Inbox
+                    %li
+                      %a{:href => "#"} Starred
+                    %li
+                      %a{:href => "#"} Important
+                    %li
+                      %a{:href => "#"} Sent Mail
+                    %li
+                      %a{:href => "#"} Drafts
+        - else
+          %div hai
+%div

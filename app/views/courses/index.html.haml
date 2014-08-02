@@ -1,0 +1,33 @@
+.container-fluid
+  .row
+    .col-md-10
+      .row
+        #padding.col-md-9
+          .row
+            .col-md-10.col-md-push-1
+              %p.lead Listing users
+            .col-md-1.col-md-push-3
+              = link_to 'Add Course',  new_course_path ,:class => 'btn btn-primary'
+            .col-md-10.col-md-push-3
+              %table.table.table-striped.table-hover
+                %tr
+                  %th Tile
+                  %th Outcome
+                  %th Description
+                  %th fee
+                  %th Actions
+                  %th.text-center{:colspan => "3"}
+                - if @courses.blank?
+                  %p No Courses
+                - else
+                  - @courses.each do |course|
+                    %tr
+                      %td= course.title
+                      %td= course.outcome
+                      %td= course.description
+                      %td= course.fee
+                      %td= link_to 'show',course_path(course.id)
+                      %td= link_to 'edit', edit_course_path(course.id)
+                      %td
+                        = link_to 'Destroy', course_path(course.id), :method => 'delete', data: { confirm: 'Are you sure?' }
+             

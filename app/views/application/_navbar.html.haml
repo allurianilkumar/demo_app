@@ -1,0 +1,33 @@
+.row
+  %nav.navbar.navbar-inverse{:role => "navigation"}
+    .nav.navbar-header
+      %a.navbar-brand{:href => "/contacts/new"} Contact
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li#test2.dropdown
+          %a.dropdown{"data-toggle" => "dropdown", :href => "#"}
+            %h5
+              Produts
+              %span.caret
+          %ul#test3.dropdown-menu{"aria-labelledby" => "dropdownMenu", :role => "menu"}
+            %li
+              %a{:href => "about.html"}
+                %h5 About Us
+            %li
+              %a{:href => "service.html"}
+                %h5 Management Team
+            %li
+              %a{:href => "#"}
+                %h5 Careers
+      .nav.navbar-nav.pull-right
+        - if user_signed_in?
+          %ul
+            Logged in as
+            %strong= current_user.email
+            = link_to 'Edit profile', edit_user_registration_path
+            = link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Sign up", new_user_registration_path
+          = link_to "Login", new_user_session_path
+  %hr/
+  

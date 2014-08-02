@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-lg-10
+      = form_for :user,:url => valid_user_users_path ,:method => 'post' , :class => 'simple_form form-horizontal' do |user|
+        %div{:style => "margin:0;padding:0;display:inline"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input{:name => "authenticity_token", :type => "hidden", :value => "B1TuNwFttqwyi00Yz/h3t746UZXcJIeDlasaf2pnE4o="}/
+        %h1 Member Login
+        %legend
+          %h4
+            If you are not a member yet please become a member
+            %a{:href => "/users/new"} here
+            to Sign In
+        %h4
+          - if flash[:notice]
+            = h flash[:notice]
+        .form-group.row
+          = user.label :email, class: "string optional control-label control-label col-md-2 col-lg-2"
+          .col-md-4.col-lg-4
+            = user.text_field :email, class: "form-control", size:"70"
+        .form-group.row
+          = user.label :password, class: "string optional control-label control-label col-md-2 col-lg-2"
+          .col-md-4.col-lg-4
+            = user.password_field :password, class: "form-control"
+        = user.submit "Sign in", class: "btn btn-primary", style: "margin-left: 17%"
+        

@@ -1,0 +1,32 @@
+.container-fluid
+  .row
+    .col-md-10
+      #padding.col-md-9
+        .row
+          .col-md-10
+            %p.lead Listing users
+          .col-md-2
+            = link_to 'Add User', new_users_admin_path,:class => 'btn btn-primary'
+        %table.table.table-striped.table-hover
+          %tr
+            %th First Name
+            %th Last Name
+            %th Email
+            %th Institution
+            %th Role
+            %th.text-center{:colspan => "3"}
+          - if @users.blank?
+            %p No Users
+          - else
+            - @users.each do |users|
+              %tr
+                %td= users.first_name
+                %td= users.last_name
+                %td= users.email
+                %td= users.institution
+                %td= users.role
+                %td= link_to 'show',users_admin_path(users.id)
+                %td= link_to 'edit', edit_users_admin_path(users.id)
+                %td= link_to 'Destroy', users_admin_path(users.id), :method => 'delete',data: { confirm: 'Are you sure?' }
+        .col-lg-offset-3
+        

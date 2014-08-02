@@ -1,0 +1,15 @@
+%legend
+  %h4 To get access to this inventory list of gadgets please fill out the following form. Thank you
+.form-group.row
+  = contacts.label :contacts_name, class: "string optional control-label control-label col-md-2 col-lg-2"
+  .col-md-4.col-lg-4
+    = contacts.text_field :contact_name, class: "form-control"
+.form-group.row
+  = contacts.label :contact_mail, class: "string optional control-label control-label col-md-2 col-lg-2"
+  .col-md-4.col-lg-4
+    = contacts.text_field :contact_mail, class: "form-control"
+.form-group.row
+  = contacts.label :contact_message, class: "string optional control-label control-label col-md-2 col-lg-2"
+  .col-md-4.col-lg-4
+    = contacts.text_area :contact_message, class: "form-control"
+   

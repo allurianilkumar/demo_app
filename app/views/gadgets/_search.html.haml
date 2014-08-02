@@ -1,0 +1,20 @@
+.col-md-6.col-md-pull-7
+  %p.alert
+  .col-md-8.col-xs-5.col-md-push-2
+    .thumbnail
+      .caption
+        %form.form-horizontal
+          %fieldset
+            %legend Gadget Inventory
+            .form-group
+              = search_form_for @search do | f |
+                .col-md-5
+                  %label= f.label :title_start, "Search by: Gadget title"
+                  = f.text_field :title_start
+                  %br/
+                  %br/
+                  %label= f.label :analysis_group, "Search by:Analysis Group"
+                  = f.text_field :analysis_group_start
+                  %br/
+                  = f.submit "Search", :class => "btn btn-default"
+                  

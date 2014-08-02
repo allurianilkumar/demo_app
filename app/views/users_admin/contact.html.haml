@@ -1,0 +1,31 @@
+.container-fluid
+  .row
+    .col-md-10
+      .row
+        .col-md-9
+          .well
+            .row.well.form-style
+              %h4 If you want to contact us please fill out the form below we get back to you as soon as possible.
+              %h4 Thank you
+              .col-md-6
+                %div{:style => "margin:0;padding:0;display:inline"}
+                  %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+                  %input{:name => "authenticity_token", :type => "hidden", :value => "FVVqASyLBGLnMLPiJoYTVOgcdust65tXz++bKPDsWYo="}/
+                %label.string.required.control-label{:for => "contact_name"}
+                  %abbr{:title => "required"} *
+                  Name
+                %input#name.form-control{:name => "contact[name]", :size => "61", :type => "text"}/
+                %label.email.required.control-label{:for => "contact_email"}
+                  %abbr{:title => "required"} *
+                  Email
+                %input#email.form-control{:name => "contact[email]", :required => "required", :size => "61", :type => "email", :value => ""}/
+                %label.text.required.control-label{:for => "contact_message"}
+                  %abbr{:title => "required"} *
+                  Message
+                %textarea#text.form-control{:cols => "40", :name => "contact[message]", :rows => "10", :type => "text"}
+                  :preserve
+                    
+                                        %input.btn.btn-primary.btn-style{:name => "commit", :type => "submit", :value => "Send"}/
+                %button.btn.btn-default.btn-style
+                  %a{:href => "/"} Cancel
+                  

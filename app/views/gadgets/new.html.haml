@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-lg-10
+      %h2 Create Gadget
+      = form_for(@gadget,:url => { :action => 'create',:method =>'post'}) do | gadget |
+        = render( :partial => "form", :locals => { :gadget => gadget } )
+        .form-group
+          .col-md-8.col-md-offset-2
+            .text-center
+              = link_to "Back", gadgets_path, class: 'btn btn-primary'
+              = gadget.submit "Save", class: 'btn btn-primary'
+              

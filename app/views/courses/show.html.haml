@@ -1,0 +1,20 @@
+.container-fluid
+  .row
+    .col-md-10
+      .row
+        .col-md-9
+          %p
+            %b Title:
+            = @course.title
+          %p
+            %b Outcome:
+            = @course.outcome
+          %p
+            %b Description:
+            = @course.description
+          %p
+            %b Fee:
+            = @course.fee
+          = link_to 'Edit', edit_course_path, :class => "btn btn-success", style: "margin-left: 0%"
+          = link_to 'Back', courses_path, :class => 'btn btn-default'
+          

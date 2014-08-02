@@ -21,3 +21,4 @@ gem 'ransack'
 gem 'carrierwave'
 # for all
 gem "paperclip"
+gem 'haml'

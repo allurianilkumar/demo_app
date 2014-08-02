@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-lg-10
+      %h2 Update Courses
+      = form_for( @course, :url => { :action => 'update' }) do | course |
+        = render( :partial => "form", :locals => { :course => course } )
+        .form-group
+          .col-md-8.col-md-offset-2
+            = course.submit "Update Course", class: "btn btn-primary", style: "margin-left: 7%"
+            = link_to 'Back', courses_path, :method => 'get', :class => "btn btn-default"
+            

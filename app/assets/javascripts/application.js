@@ -4,5 +4,4 @@
 //= require turbolinks
 //= require bootstrap
 
-//= require components
-
+//= require_tree .

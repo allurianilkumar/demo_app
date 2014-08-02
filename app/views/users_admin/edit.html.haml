@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-lg-10
+      %h2 Update Courses
+      %h2 Update User
+      = form_for( @user, :url => { :action => 'update' } ) do | user |
+        = render( :partial => "form", :locals => { :user => user } )
+        .form-group
+          .col-md-8.col-md-offset-2
+            = user.submit "Save", class: "btn btn-primary", style: "margin-left: 7%"
+            = link_to 'Back', users_admin_index_path, :method => 'get', :class => "btn btn-default"
+            

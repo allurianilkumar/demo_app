@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-lg-10
+      %h2 Update Gadget
+      = form_for( @gadget, :url => { :action => 'update' }) do | gadget |
+        = render( :partial => "form", :locals => { :gadget => gadget } )
+        .form-group
+          .col-md-8.col-md-offset-2
+            = gadget.submit "Update Gadget", class: "btn btn-primary", style: "margin-left: 7%"
+            = link_to 'Back', gadgets_path, :method => 'get', :class => "btn btn-default"
+            

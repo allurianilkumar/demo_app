@@ -1,0 +1,137 @@
+.container
+  .col-lg-10.col-lg-push-5
+    .row
+      .form-group
+        .col-md-9
+          = gadget.text_field :title, required: true, class: 'form-control input-md', placeholder: 'Enter Title Here'
+        .col-md-3
+          = link_to "Back", gadgets_path, class: 'btn btn-primary'
+          = gadget.submit "Save", class: 'btn btn-primary'
+    %hr/
+    .col-lg-8
+      .row
+        .form-group
+          %label.col-md-4.control-label Name of the method/gadget
+          .col-md-7
+            = gadget.text_field :name_method_or_gadget, required: true, class: 'form-control input-md'
+      %br
+        .row
+          .form-group
+            %label.col-md-4.control-label What is it for?
+            .col-md-7
+              = gadget.text_field :useful_for, class: 'form-control input-md'
+        %br
+          .row
+            .form-group
+              %label.col-md-4.control-label Analysis group(s)
+              .col-md-7{:style => "padding-top:13px"}
+                - AnalysisGroup.all.each do |a_value|
+                  - if @gadget.new_record?
+                    \&nbsp
+                    \#{gadget.check_box(:analysis_group, { :multiple => true }, a_value.id, nil)}
+                    \#{a_value.name}
+                  - else
+                    - if @gadget.analysis_groups.pluck(:id).include?(a_value.id)
+                      = gadget.check_box(:analysis_group, { :multiple => true, checked:  true}, a_value.id, nil)
+                      = a_value.name
+                    - else
+                      = gadget.check_box(:analysis_group, { :multiple => true }, a_value.id, nil)
+                      = a_value.name
+          %br
+            .row
+              .form-group
+                %label.col-md-4.control-label Type of method/gadget
+                .col-md-7{:style => "padding-top:13px"}
+                  - TypeOfMethod.all.each do |a_value|
+                    - if @gadget.new_record?
+                      = gadget.check_box(:type_of_method_or_gadget , { :multiple => true }, a_value.id, nil)
+                      = a_value.name
+                    - else
+                      - if @gadget.type_of_methods.pluck(:id).include?(a_value.id)
+                        = gadget.check_box(:type_of_method_or_gadget , { :multiple => true, checked:  true}, a_value.id, nil)
+                        = a_value.name
+                      - else
+                        = gadget.check_box(:type_of_method_or_gadget , { :multiple => true }, a_value.id, nil)
+                        = a_value.name
+            %br
+              .row
+                .form-group
+                  %label.col-md-4.control-label{:for => ""} Gadget Description
+                  .col-md-7
+                    = gadget.text_area :gadget_description, class: 'form-control', rows: 4
+              %br
+                .row
+                  .form-group
+                    %label.col-md-4.control-label{:for => "buttondropdown"} Cost
+                    .col-md-5
+                      = gadget.text_field :cost, class: 'form-control'
+                    .col-md-3
+                      = gadget.select :currencys_id, Currency.all.collect {|p| [ p.name, p.id] },{:default => 'Guest'}, {:class => 'form-control', id: 'currency_select'}
+                %br
+                  .row
+                    .form-group
+                      %label.col-md-4.control-label Company name
+                      .col-md-7
+                        = gadget.text_field :companay_name, class: 'form-control input-md'
+                  %br
+                    .row
+                      .form-group
+                        %label.col-md-4.control-label Company description
+                        .col-md-7
+                          = gadget.text_area :company_description, class: 'form-control input-md', rows:4
+                    %br
+                      .row
+                        .form-group
+                          %label.col-md-4.control-label Company website
+                          .col-md-7
+                            = gadget.text_field :companay_website, class: 'form-control input-md'
+                      %br
+                        .row
+                          .form-group
+                            %label.col-md-4.control-label Technology used
+                            .col-md-7
+                              = gadget.text_field :technology_used, class: 'form-control input-md'
+                        %br
+                          .row
+                            .form-group
+                              %label.col-md-4.control-label Scientific description of
+                              .col-md-7
+                                = gadget.text_area :scientific_descrition, class: 'form-control input-md', rows: 4
+                          %br
+                            .row
+                              .form-group
+                                %label.col-md-4.control-label QuaLiFY area of interest
+                                .col-md-7{:style => "padding-top:13px"}
+                                  - QualifyAreaOfInterest.all.each do |a_value|
+                                    - if @gadget.new_record?
+                                      = gadget.check_box(:qualfiy_area_interest, { :multiple => true }, a_value.id, nil)
+                                      = a_value.name
+                                    - else
+                                      - if @gadget.qualify_area_of_interests.pluck(:id).include?(a_value.id)
+                                        = gadget.check_box(:qualfiy_area_interest, { :multiple => true, checked:  true}, a_value.id, nil)
+                                        = a_value.name
+                                      - else
+                                        = gadget.check_box(:qualfiy_area_interest, { :multiple => true }, a_value.id, nil)
+                                        = a_value.name
+                            %br
+                              .row
+                                .form-group
+                                  %label.col-md-4.control-label Explanation by evaluator(NRC)
+                                  .col-md-7
+                                    = gadget.text_area :explanation_by_evaluator, class: 'form-control input-md', rows: 4
+                              %br
+                                %hr/
+                                .row
+                                  .form-group
+                                    %label.col-md-4.control-label Name of evaluator(NRC)
+                                    .col-md-7
+                                      = gadget.text_field :name, class: 'form-control input-md', |
+                                        id: 'fieldwidth'                                         |
+                                %br
+                                  .row
+                                    .form-group
+                                      %label.col-md-4.control-label Comments/suggestion of evaluator
+                                      .col-md-7
+                                        = gadget.text_area :comments_suggestion_of_evalutor, class: 'form-control input-md', rows: 4, id: 'fieldwidth'
+                                  %br
+                                  

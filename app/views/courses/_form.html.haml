@@ -1,0 +1,20 @@
+%legend
+  %h4 To get access to this inventory list of gadgets please fill out the following form. Thank you
+.form-group.row
+  = course.label :title, class: "string optional control-label control-label col-md-2 col-lg-2"
+  .col-md-4.col-lg-4
+    = course.text_field :title, class: "form-control"
+.form-group.row
+  = course.label :outcome, class: "string optional control-label control-label col-md-2 col-lg-2"
+  .col-md-4.col-lg-4
+    = course.text_field :outcome, class: "form-control"
+.form-group.row
+  = course.label :description, class: "string optional control-label control-label col-md-2 col-lg-2"
+  .col-md-4.col-lg-4
+    = course.text_area :description, class: "form-control"
+    / This is for fee text field ...
+.form-group.row
+  = course.label :fee, class: "string optional control-label control-label col-md-2 col-lg-2"
+  .col-md-4.col-lg-4
+    = course.text_field :fee, class: "form-control"
+    

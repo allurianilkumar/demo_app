@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-lg-10
+      %h2 Create Message
+      = form_for( @contacts, :url => { :action => 'create' }) do | contacts |
+        = render( :partial => "form", :locals => { :contacts => contacts } )
+        .form-group
+          .col-md-8.col-md-offset-2
+            = contacts.submit 'Send', class: "btn btn-primary", style: "margin-left: 7%"
+            = link_to 'cancel', new_user_session_path, :method => 'post', :class => "btn btn-default"
+            

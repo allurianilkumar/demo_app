@@ -1,0 +1,41 @@
+.container
+  .row
+    .col-lg-10
+      = form_for :user,:url => users_path,:method => 'post' do |user|
+        %div{:style => "margin:0;padding:0;display:inline"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input{:name => "authenticity_token", :type => "hidden", :value => "B1TuNwFttqwyi00Yz/h3t746UZXcJIeDlasaf2pnE4o="}/
+        %h1 New Member Registration
+        %legend
+          %h4 To get access to this inventory list of gadgets please fill out the following form. Thank you
+        .form-group.row
+          = user.label :FirstName, class: "string optional control-label control-label col-md-2 col-lg-2"
+          .col-md-4.col-lg-4
+            = user.text_field :first_name, class: "form-control"
+        .form-group.row
+          = user.label :LastName, class: "string optional control-label control-label col-md-2 col-lg-2"
+          .col-md-4.col-lg-4
+            = user.text_field :last_name, class: "form-control"
+        .form-group.row
+          = user.label :Institution, class: "string optional control-label control-label col-md-2 col-lg-2"
+          .col-md-4.col-lg-4
+            = user.text_field :institution, class: "form-control"
+        .form-group.row
+          = user.label :Email, class: "string optional control-label control-label col-md-2 col-lg-2"
+          .col-md-4.col-lg-4
+            = user.text_field :email, class: "form-control"
+        .form-group.row
+          = user.label :Password, class: "string optional control-label control-label col-md-2 col-lg-2"
+          .col-md-4.col-lg-4
+            = user.password_field :password, class: "form-control"
+        .row
+          .form-group
+            %label.string.optional.control-label.control-label.col-md-2{:for => "user_Confirmation"} Confirmation
+            .col-md-4
+              %input#user_password_confirmation.form-control{:name => "user[password_confirmation]", :size => "30", :type => "password"}/
+        %br
+          .form-group
+            .col-lg-10.col-lg-offset-2{:style => "padding-top:20px;"}
+              = user.submit "Become a member", class: "btn btn-primary", style: "margin-left: 5%"
+            %div
+            
