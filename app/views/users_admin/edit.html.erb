@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row"> 
+    <div class="col-lg-10 ">
+    <h2>Update Courses</h2>
+      <h2>Update User</h2>
+        <%= form_for( @user, :url => { :action => 'update' } ) do | user | %>
+        <%= render( :partial => "form", :locals => { :user => user } ) %>
+      <div class="form-group"> 
+        <div class="col-md-8 col-md-offset-2"> 
+          <%= user.submit "Save", class: "btn btn-primary", style: "margin-left: 7%"%>
+          <%= link_to 'Back', users_admin_index_path, :method => 'get', :class => "btn btn-default"%>
+        </div> 
+      </div> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

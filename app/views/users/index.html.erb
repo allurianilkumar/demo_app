@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <%= image_tag("anil.jpg",size: "150x150", alt: "Edit Entry") %>
+  <!--<%#= asset_path('logo.png') %>-->
+    <div class ="row">
+      <article class="col-lg-12">
+      <h1>Our Service </h1>
+      <p class="text-justify"> 
+        we strongly believe is what everything revolves around. Secondly, we focus on system cost effective way of delivering the solution.ypur&rsquo;
+      </p>
+      </article>
+    </div>
+<br><br><hr/>
+<footer class="row"><p>&copy;Copyright 2014 by Navaratan Technologies.All Rights Reserved.</p>
+</footer>
+<% else %>
+<div> <p>please login</p></div>
+<% end %>
