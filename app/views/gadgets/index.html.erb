@@ -1,0 +1,46 @@
+<%= render 'search' %>
+<div class="row">
+  <div class="col-md-10" id="padding">
+    <div class="col-md-10">
+      <p class="lead"> Gadget Inventory</p> 
+      <div class="row">
+        </br>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= link_to 'ADD GADGET', new_gadget_path, class: 'btn btn-primary' %>
+    </div>
+    <% if !@gadgets.empty? %>
+      <table class="table table-striped table-hover">
+          <tr>
+             <th><%= sort_link @search, :title, "Gadget Title" %></th>
+            <th><%= sort_link @search, :name_method_or_gadget, "Name of the tool" %></th>
+            <th>Analysis Group(s)</th>
+            <th>Actions</th>
+            <th colspan="3" class="text-center"></th>
+          </tr>
+        <% @gadgets.each do | gadget | %>
+          <tr>
+            <td><%= gadget.title %></td>
+            <td><%= gadget.name_method_or_gadget %></td>
+            <td><% gadget.analysis_groups.each do |temp| %>
+                <% if temp == gadget.analysis_groups.last %>
+                  <%= temp.name%>
+                <% else%>
+                  <%= temp.name+","%>
+                <% end %>
+                <% end %>
+            </td>
+            <td><%= link_to 'Show', gadget_path(gadget.id) %></td>
+            <td><%= link_to 'Edit', edit_gadget_path(gadget.id) %></td>
+            <td><%= link_to 'Delete',gadget_path(gadget.id), :method => 'delete' %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <div class="col-md-10">
+        <p class="text-center"> There are no matched records.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
